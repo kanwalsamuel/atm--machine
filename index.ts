@@ -20,7 +20,7 @@ let atm = await inquirer.prompt([
 if (atm.q1 === userId) {
   console.log("LOG IN!!!! Sucessfull");
 
-}
+
 
 let operation = await inquirer.prompt([
     {
@@ -70,5 +70,8 @@ let operation = await inquirer.prompt([
     ]);
 
      console.log(".....Thankyou for using fast cash.....")
+}
 }   
-
+else{
+  console.log("invalid userid")
+}

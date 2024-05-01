@@ -13,44 +13,47 @@ let atm = await inquirer.prompt([
 ]);
 if (atm.q1 === userId) {
     console.log("LOG IN!!!! Sucessfull");
-}
-let operation = await inquirer.prompt([
-    {
-        name: "q2",
-        type: "list",
-        message: "Select an a option",
-        choices: ["Withdraw", "Check balance", "Fast cash"],
-    },
-]);
-if (operation.q2 === "Withdraw") {
-    let operation = await inquirer.prompt([
-        {
-            name: "q2",
-            type: "number",
-            message: "Enter your amount?",
-        },
-    ]);
-    if (operation.q2 > myBalance) {
-        console.log("Insufficent balance");
-    }
-    else {
-        myBalance -= operation.q2;
-        console.log(`"your remaining balance is ${myBalance}"`);
-    }
-    ;
-}
-if (operation.q2 === "Check balance") {
-    console.log(`your acount balance is ${myBalance}`);
-}
-;
-if (operation.q2 === "Fast cash") {
     let operation = await inquirer.prompt([
         {
             name: "q2",
             type: "list",
-            message: "Enter Your amount",
-            choices: ["1000", "5000", "10000"],
+            message: "Select an a option",
+            choices: ["Withdraw", "Check balance", "Fast cash"],
         },
     ]);
-    console.log(".....Thankyou for using fast cash.....");
+    if (operation.q2 === "Withdraw") {
+        let operation = await inquirer.prompt([
+            {
+                name: "q2",
+                type: "number",
+                message: "Enter your amount?",
+            },
+        ]);
+        if (operation.q2 > myBalance) {
+            console.log("Insufficent balance");
+        }
+        else {
+            myBalance -= operation.q2;
+            console.log(`"your remaining balance is ${myBalance}"`);
+        }
+        ;
+    }
+    if (operation.q2 === "Check balance") {
+        console.log(`your acount balance is ${myBalance}`);
+    }
+    ;
+    if (operation.q2 === "Fast cash") {
+        let operation = await inquirer.prompt([
+            {
+                name: "q2",
+                type: "list",
+                message: "Enter Your amount",
+                choices: ["1000", "5000", "10000"],
+            },
+        ]);
+        console.log(".....Thankyou for using fast cash.....");
+    }
+}
+else {
+    console.log("invalid userid");
 }
